@@ -29,14 +29,14 @@ public class Main {
     }
 
     public static void printResults(ArrayList<Boolean> resultList) {
-        if (resultList != null) {
+        if (resultList.size() != 0) {
             System.out.println("Files found:");
             for (int i = 0; i < resultList.size(); i++) {
                 if (resultList.get(i))
                     System.out.println(fileList.get(i));
             }
         } else {
-            System.out.println("Wrong query");
+            System.out.println("Empty query");
         }
     }
 }

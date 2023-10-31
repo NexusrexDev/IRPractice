@@ -29,13 +29,13 @@ public class Main {
     }
 
     public static void printResults(HashSet<Integer> resultList) {
-        if (resultList != null) {
+        if (resultList.size() != 0) {
             System.out.println("Files found:");
             for (int docID : resultList) {
                 System.out.println(fileList.get(docID));
             }
         } else {
-            System.out.println("Wrong query");
+            System.out.println("Empty query");
         }
     }
 }

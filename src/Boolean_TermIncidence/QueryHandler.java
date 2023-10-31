@@ -34,7 +34,10 @@ public class QueryHandler {
                     notOperation();
                     break;
                 default:
-                    matrixStack.push(incidenceMatrix.get(term));
+                    ArrayList<Boolean> termIncidence = incidenceMatrix.get(term);
+                    if (termIncidence == null)
+                        matrixStack.push(new ArrayList<>());
+                    else matrixStack.push(termIncidence);
             }
         }
 

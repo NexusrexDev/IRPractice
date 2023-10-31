@@ -38,7 +38,10 @@ public class QueryHandler {
                     notOperation();
                     break;
                 default:
-                    matrixStack.push(invertedMatrix.get(term));
+                    HashSet<Integer> termDocuments = invertedMatrix.get(term);
+                    if (termDocuments == null)
+                        matrixStack.push(new HashSet<>());
+                    else matrixStack.push(termDocuments);
             }
         }
 
