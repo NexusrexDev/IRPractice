@@ -63,16 +63,7 @@ class QueryAST {
     }
 
     private TreeNode parseFactor(String[] tokens) {
-        if (index < tokens.length && tokens[index].equals("(")) {
-            index++;
-            TreeNode node = parseExpression(tokens);
-            if (index < tokens.length && tokens[index].equals(")")) {
-                index++;
-                return node;
-            } else {
-                throw new IllegalArgumentException("Mismatched parentheses in the query.");
-            }
-        } else if (index < tokens.length && tokens[index].matches("[a-zA-Z]+")) {
+        if (index < tokens.length && tokens[index].matches("[a-zA-Z]+")) {
             TreeNode node = new TreeNode(tokens[index]);
             index++;
             return node;
@@ -82,9 +73,6 @@ class QueryAST {
     }
 
     public HashSet<Integer> makeQuery(TreeNode root) {
-
-        termQueue = new LinkedList<>();
-        matrixStack = new Stack<>();
 
         traverseTreeHelper(root);
 
@@ -165,12 +153,5 @@ class QueryAST {
 
         matrixStack.push(result);
     }
-//    public static void main(String[] args) {
-//        String query = "a AND b OR NOT c";
-//        QueryAST queryAST = new QueryAST(query);
-//        TreeNode rootNode = queryAST.parseQuery();
-//
-//
-//    }
 }
 
