@@ -3,7 +3,7 @@ package Boolean_InvertedIndex;
 import java.util.*;
 
 public class Main {
-    public static String folderPath = "\\files";
+    public static String folderPath = "/files";
     public static HashMap<String, HashSet<Integer>> matrix;
     public static HashMap<Integer, String> fileList;
     public static Preprocessor preProc;

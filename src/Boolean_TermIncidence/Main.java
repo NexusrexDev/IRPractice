@@ -3,7 +3,7 @@ package Boolean_TermIncidence;
 import java.util.*;
 
 public class Main {
-    public static String folderPath = "\\files";
+    public static String folderPath = "/files";
     public static HashMap<String, ArrayList<Boolean>> matrix;
     public static HashMap<Integer, String> fileList;
     public static Preprocessor preProc;
