@@ -11,7 +11,6 @@ public class Main {
     public static QueryAST handler;
 
     public static void main(String[] args) {
-        System.out.println(new File("").getAbsolutePath()+ folderPath);
         preProc = new Preprocessor(folderPath);
         fileList = preProc.getFilenameList();
         matrix = preProc.getInvertedMatrix();

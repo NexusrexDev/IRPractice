@@ -39,7 +39,7 @@ class QueryAST {
         String[] stemmedTokens = new String[tokens.length];
         EnglishStemmer stemmer = new EnglishStemmer();
         for(int i = 0; i < tokens.length; i++) {
-            stemmer.setCurrent(tokens[i]);
+            stemmer.setCurrent(tokens[i].toLowerCase());
             stemmer.stem();
             stemmedTokens[i] = stemmer.getCurrent();
         }

@@ -33,7 +33,7 @@ public class Preprocessor {
                         String[] words = line.split(" ");
                         for (String word : words) {
                             word = word.trim();
-                            stemmer.setCurrent(word);
+                            stemmer.setCurrent(word.toLowerCase());
                             stemmer.stem();
                             word = stemmer.getCurrent();
 
