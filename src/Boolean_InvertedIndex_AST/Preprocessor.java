@@ -2,6 +2,7 @@
 package Boolean_InvertedIndex_AST;
 import java.io.*;
 import java.util.*;
+import Stemmer.EnglishStemmer;
 
 public class Preprocessor {
     private String folderPath;
@@ -14,6 +15,7 @@ public class Preprocessor {
     }
 
     private void readFiles(){
+        EnglishStemmer stemmer = new EnglishStemmer();
         File folder = new File(folderPath);
         File[] fileList = folder.listFiles();
         int fileCounter = 0;
@@ -31,6 +33,9 @@ public class Preprocessor {
                         String[] words = line.split(" ");
                         for (String word : words) {
                             word = word.trim();
+                            stemmer.setCurrent(word);
+                            stemmer.stem();
+                            word = stemmer.getCurrent();
 
                             if (invertedMatrix.get(word) == null) {
                                 //If the word isn't captured before, add it to the matrix
