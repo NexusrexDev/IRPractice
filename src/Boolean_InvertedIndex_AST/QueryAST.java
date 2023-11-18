@@ -2,6 +2,7 @@ package Boolean_InvertedIndex_AST;
 
 
 import java.util.*;
+import Stemmer.EnglishStemmer;
 
 class TreeNode {
     String value;
@@ -27,6 +28,7 @@ class QueryAST {
         this.query = query;
         invertedMatrix = matrix;
         documentSet = new HashSet<>();
+        matrixStack = new Stack<>();
         for (int i = 0; i < docNumber; i++)
             documentSet.add(i);
         this.index = 0;
@@ -34,7 +36,14 @@ class QueryAST {
 
     public TreeNode parseQuery() {
         String[] tokens = query.split("\\s+");
-        return parseExpression(tokens);
+        String[] stemmedTokens = new String[tokens.length];
+        EnglishStemmer stemmer = new EnglishStemmer();
+        for(int i = 0; i < tokens.length; i++) {
+            stemmer.setCurrent(tokens[i]);
+            stemmer.stem();
+            stemmedTokens[i] = stemmer.getCurrent();
+        }
+        return parseExpression(stemmedTokens);
     }
 
     private TreeNode parseExpression(String[] tokens) {
