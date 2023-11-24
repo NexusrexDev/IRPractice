@@ -40,6 +40,7 @@ class QueryAST {
         String[] stemmedTokens = new String[tokens.length];
         for(int i = 0; i < tokens.length; i++) {
             stemmer.add(tokens[i].toCharArray(), tokens[i].length());
+            stemmer.setCurrent(tokens[i].toLowerCase());
             stemmer.stem();
             stemmedTokens[i] = stemmer.toString();
         }

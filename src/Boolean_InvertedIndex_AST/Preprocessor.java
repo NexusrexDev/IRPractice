@@ -33,7 +33,9 @@ public class Preprocessor {
                         for (String word : words) {
                             word = word.trim();
 
+
                             stemmer.add(word.toCharArray(), word.length());
+
                             stemmer.stem();
                             word = stemmer.toString();
 
