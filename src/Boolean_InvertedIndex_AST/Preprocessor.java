@@ -31,11 +31,8 @@ public class Preprocessor {
                     while (line != null) {
                         String[] words = line.split(" ");
                         for (String word : words) {
-                            word = word.trim();
-
-                            stemmer.add(word.toCharArray(), word.length());
-                            stemmer.stem();
-                            word = stemmer.toString();
+                            word = word.trim().toLowerCase();
+                            word = stemmer.stem(word);
 
                             if (invertedMatrix.get(word) == null) {
                                 //If the word isn't captured before, add it to the matrix

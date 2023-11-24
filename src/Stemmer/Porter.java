@@ -348,6 +348,7 @@ public class Porter
             if (a > 1 || a == 1 && !cvc(k-1)) k--;
         }
         if (b[k] == 'l' && doublec(k) && m() > 1) k--;
+
     }
 
     /** Stem the word placed into the Stemmer buffer through calls to add().
@@ -355,10 +356,13 @@ public class Porter
      * from the input.  You can retrieve the result with
      * getResultLength()/getResultBuffer() or toString().
      */
-    public void stem()
-    {  k = i - 1;
+    public String stem(String w)
+    {  
+        add(w.toCharArray(), w.length());
+        k = i - 1;
         if (k > 1) { step1(); step2(); step3(); step4(); step5(); step6(); }
         i_end = k+1; i = 0;
+        return toString();
     }
 
     /** Test program for demonstrating the Stemmer.  It reads text from a

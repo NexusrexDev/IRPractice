@@ -39,9 +39,7 @@ class QueryAST {
         String[] tokens = query.split("\\s+");
         String[] stemmedTokens = new String[tokens.length];
         for(int i = 0; i < tokens.length; i++) {
-            stemmer.add(tokens[i].toCharArray(), tokens[i].length());
-            stemmer.stem();
-            stemmedTokens[i] = stemmer.toString();
+            stemmedTokens[i] = stemmer.stem(tokens[i].toLowerCase());
         }
         return parseExpression(stemmedTokens);
     }
