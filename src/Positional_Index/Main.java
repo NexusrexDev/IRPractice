@@ -1,6 +1,9 @@
 package Positional_Index;
 
+import java.io.File;
 import java.util.*;
+
+import java.awt.Desktop;
 
 public class Main {
     public static String folderPath = "/files";
@@ -29,10 +32,21 @@ public class Main {
     }
 
     public static void printResults(ArrayList<Integer> resultList) {
+        Desktop desktop = Desktop.getDesktop();
         if (resultList.size() != 0) {
             System.out.println("Files found:");
             for (int docID : resultList) {
                 System.out.println(fileList.get(docID));
+                if(!Desktop.isDesktopSupported()){
+                    System.out.println("Desktop is not supported");
+                    return;
+                }
+                File file = new File(new File("").getAbsolutePath() + folderPath + "/" + fileList.get(docID));
+                try {
+                    if (file.exists()) desktop.open(file);
+                } catch (Exception e) {
+                    System.out.println("AAAAAAAAAAAAAAAAAAA");
+                }
             }
         } else {
             System.out.println("Empty query");
