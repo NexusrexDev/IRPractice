@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f1f1f1;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #search-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #search-box {
+            max-width: 600px;
+            width: 100%;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            display: flex;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        #search-input {
+            flex: 1;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        #search-button {
+            background-color: #4285f4;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        #search-input:focus {
+            outline: none;
+        }
+
+        #search-button:hover {
+            background-color: #2b7de9;
+        }
+
+        #responseArea {
+            max-width: 600px;
+            width: 100%;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        h1 {
+            color: green;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="search-container">
+    <h1>AlliGoogle</h1>
+    <div id="search-box">
+        <input type="text" id="search-input" placeholder="Search">
+        <button id="search-button" onclick="sendApiRequest()">Search</button>
+    </div>
+    <div id="responseArea"></div>
+</div>
+<script src="/html/script.js"></script>
+</body>
+</html>
+
